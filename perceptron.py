@@ -1,11 +1,9 @@
-#!/usr/bin/python3
 import numpy as np
 import matplotlib.pyplot as plt
 
 NUM_FEATURES = 124 #features are 1 through 123 (123 only in test set), +1 for the bias
 DATA_PATH = "/Users/Pro/Desktop/spring semester/machien learning folder/perceptron"
 
-#returns the label and feature value vector for one datapoint (represented as a line (string) from the data file)
 def parse_line(line):
     tokens = line.split()
     x = np.zeros(NUM_FEATURES)
@@ -18,7 +16,6 @@ def parse_line(line):
     x[-1] = 1 #bias
     return y, x
 
-#return labels and feature vectors for all datapoints in the given file
 def parse_data(filename):
     with open(filename, 'r') as f:
         vals = [parse_line(line) for line in f]
